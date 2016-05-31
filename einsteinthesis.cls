@@ -459,6 +459,7 @@ by\par
 % the appendix.
 \newenvironment{abbreviations}
   {\begin{alwayssingle}
+    \pagestyle{simple}
     \begin{center}
     {\large \bfseries List of Abbreviations}
     \end{center}
