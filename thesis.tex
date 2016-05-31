@@ -1,0 +1,159 @@
+%% LaTeX template for a PhD thesis at the Albert Einstein College of Medicine
+% 
+% thesis.tex 2016-05-30
+% Copyright 2016 by Kevin Shieh
+%
+% Based on the ucbthesis class, version 3.5.
+
+\documentclass[
+	phd,					% Ph.D. thesis
+	12pt,					% 12-point font
+    oneside					% One-sided layout
+    %twoside					% Two-sided layout
+]{einsteinthesis}
+\setulmarginsandblock{1in}{1in}{*}	% Memoir class margins
+\setlrmarginsandblock{1.5in}{1in}{*}% Memoir class margins
+\checkandfixthelayout				% Proper way to set margins
+\usepackage[utf8]{inputenc}	% Support non-ASCII characters
+\usepackage[T1]{fontenc}	% Change font
+\usepackage{times}			% Times font
+\usepackage{mathptmx}		% Times font for math
+\usepackage[				% For Vancouver/CSE-style bibliography
+	backend=biber,			% Biber or BibTex backend
+	natbib=true,			% Use Natbib support
+	style=nejm,				% NEJM/ICMJE bibliography style
+	citestyle=authoryear,	% Author name citations
+	maxbibnames=99,			% Include all author names in bibliography
+	maxcitenames=2,			% Maximum number of names in citation
+	mincitenames=1,			% Minimum number of names in citation
+	firstinits=true,		% Only include first initials of authors
+	uniquename=init,		% Set so it doesn't conflict with firstinits=true
+	isbn=false,				% No ISBNs
+	doi=true,				% Include DOIs
+	url=false				% No URLs
+]{biblatex}   				% BibLaTex for bibliography
+\renewcommand\cite{\citep}	% Parenthetical citations
+\usepackage{graphicx}		% graphicx for easier graphics management
+\graphicspath{{figures/}}	% Specify search path for graphics
+\usepackage[small, labelfont=bf]{caption}	% Captions small text, label in bold
+\usepackage{subcaption}		% Enable subfigures within figures
+\usepackage{amsmath}		% AMS math
+\usepackage{comment}		% Allows for block comments
+\usepackage{tabularx}		% Adjustable-width tables
+\usepackage{longtable}		% Tables that span multiple pages
+
+% To compile this file, run "latex thesis", then "biber thesis"
+% (or "bibtex thesis", if the output from latex asks for that instead),
+% and then "latex thesis" (without the quotes in each case).
+
+% Double spacing.
+%\def\dsp{\def\baselinestretch{2.0}\large\normalsize}
+%\dsp
+
+% If you want to indent the first paragraph of a section, then include this line:
+% \usepackage{indentfirst}
+
+% Use high resolution PDFs for final version or low resolution PNGs for drafts
+%\DeclareGraphicsExtensions{.pdf}
+\DeclareGraphicsExtensions{.png, .jpg}
+
+% Number subsections and include them in ToC (optional)
+%\setcounter{tocdepth}{3}		% Include subsections in ToC
+%\setcounter{secnumdepth}{2}	% Number subsections
+
+\addbibresource{references.bib}
+
+\newtheorem{theorem}{Definition}
+\hyphenation{mar-gin-al-ia bra-va-do}
+
+% Tables should say TABLE, followed by the appropriate Arabic numeral,
+% above the caption.
+% To have a table with left-justified caption text, use:
+% \captionsetup{format=center, labelsep=none, justification=raggedright}
+\DeclareCaptionFormat{center}{{\centerline{#1#2}\\}#3}
+\captionsetup[table]{name=TABLE, labelsep=newline, justification=centerfirst}
+
+\begin{document}
+
+\begin{frontmatter}
+
+% Declarations for Front Matter
+
+\title{Eulerian Knowledge Prexy and Lyman Zig on Wiggly}
+\author{Tom Lifesaver}
+\degreesemester{Spring}
+\degreeyear{2016}
+\degree{Doctor of Philosophy}
+\chair{Professor Richard Francis Sony}
+\othermembers{Professor Roger Spam \\
+  Associate Professor Michael Chex}
+\numberofmembers{3}
+\university{Albert Einstein College of Medicine\\Yeshiva University\\New York}
+\degreedate{January 1, 2016}
+
+\maketitle
+%\approvalpage
+\copyrightpage
+
+\include{abstract}
+
+\begin{dedication}
+\null\vfil
+\begin{center}
+To Ossie Bernosky\\\vspace{12pt}
+And exposition? Of go. No upstairs do fingering. Or obstructive, or purposeful.
+In the glitter. For so talented. Which is confines cocoa accomplished.
+Masterpiece as devoted. My primal the narcotic. For cine? To by recollection
+bleeding. That calf are infant. In clause. Be a popularly. A as midnight
+transcript alike. Washable an acre. To canned, silence in foreign.
+\end{center}
+\vfil\null
+\end{dedication}
+
+\begin{acknowledgements}
+Bovinely invasive brag; cerulean forebearance.
+Washable an acre. To canned, silence in foreign.
+Be a popularly. A as midnight transcript alike.
+To by recollection bleeding. That calf are infant. In clause.
+Buckaroo loquaciousness?  Aristotelian!
+Masterpiece as devoted. My primal the narcotic. For cine?
+In the glitter. For so talented. Which is confines cocoa accomplished.
+Or obstructive, or purposeful.
+And exposition? Of go. No upstairs do fingering.
+
+\end{acknowledgements}
+
+% You can delete the \clearpage lines if you don't want these to start on
+% separate pages.
+
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+
+\end{frontmatter}
+
+\pagestyle{headings}
+\pagenumbering{arabic}			% Arabic numerals
+\setcounter{page}{1}			% Restart numbering
+
+% (Optional) \part{First Part}
+
+\include{chap1}
+\include{chap2}
+
+%\chapter{Chapter}
+%\section{Section}
+
+\printbibliography
+
+% List of abbreviations
+\clearpage
+\pagestyle{empty}
+\include{abbreviations}
+
+% \appendix
+% \chapter{More Monticello Candidates}
+
+\end{document}
